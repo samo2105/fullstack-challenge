@@ -51,6 +51,7 @@ At a minimum, we ask the above be implemented. Extra points for the following:
 - UI for multiple days
 - Querying bookings and displaying them
 - [Anything else you think would make for a cool experience]
+- [Any improvements to current existing code]
 
 ## You can use this stack for your implementation
 
@@ -60,7 +61,7 @@ We at peek use postgreSQL and is included in the docker-compose if you want to u
 
 ### Server Setup
 
-With docker, You can run the server by running:
+With docker (or Orbstack), You can run the server by running:
 (create, migrate, seeding in done in entrypoint.sh)
 
 ```sh
@@ -96,20 +97,20 @@ You will need the following things properly installed on your computer.
 
 - `cd client`
 - `yarn`
-- `npm install -g ember`
+- `npm install -g ember-cli`
 
 **Running / Development**
 
-- `ember serve`
+- `ember serve` or `yarn start`
 - Visit your app at [http://localhost:4200](http://localhost:4200).
 - Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
 
 **Code Generators**
 Make use of the many generators for code, try `ember help generate` for more details
 
-## How to submit your code
+## Submission
 
-You can fork our repo and create your own branch and send us a link to it. Please make sure visibility is set to public so we can access that link.
+To submit your code, please create a private GitHub repo (it’s free) and share your code repo with our GitHub user, `PeekTechTask``. Please make commits of logical units to evaluate your progress and add comments as you see fit.
 You can also submit a zip files with the code challenge.
 
 ## Learn more
@@ -130,6 +131,7 @@ Learn more about Ember:
 Learn more about some tools:
 
 - [Insomnia](https://insomnia.rest/graphql/) - a desktop API testing application with good GraphQL support.
+- [Bruno](https://www.usebruno.com/) - an alternative to Insomnia
 - [Git](https://git-scm.com/)
 - [Node.js](https://nodejs.org/)
 - [Yarn](https://yarnpkg.com/)
@@ -141,4 +143,4 @@ Learn more about some tools:
 
 ## Question?
 
-If you have any questions, do not hesitate at all to ask (martin@peek.com).
+If you have any questions, please feel free to reach out to us at [martin@peek.com](mailto:martin@peek.com)
