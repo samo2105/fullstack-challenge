@@ -1,10 +1,49 @@
 {{page-title "Index"}}
-<div>
-  <h2>
-    Welcome!
+<div class="container">
+  <h2 class="text-center">
+    Welcome to your calendar!
   </h2>
-  {{#each @model as |item|}}
-    {{item.id}}-{{item.title}}-{{item.start}}<br />
-  {{/each}}
+  <h1>Events Calendar</h1>
+  <EventCalendar @events={{this.model}} />
+  
+  
+  <ul class="m-2">
+    {{#each this.model as |event|}}
+    {{!-- Modal --}}
+    <div class="modal fade" id="modal-{{event.id}}" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalCenterTitle">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">{{event.title}} Bookings</h5>
+          </div>
+          <div class="modal-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Firstname</th>
+                  <th scope="col">Lastname</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each event.bookings as |booking|}}
+                <tr>
+                  <td>{{booking.firstName}}</td>
+                  <td>{{booking.lastName}}</td>
+                </tr>
+                {{/each}}
+              </tbody>
+            </table>
+            <h4>Add a Booking</h4>
+            <BookingForm @eventId={{event.id}} />
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </ul>
 </div>
 {{outlet}}
