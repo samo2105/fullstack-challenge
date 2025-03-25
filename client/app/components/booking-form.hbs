@@ -9,5 +9,5 @@
     <input type="text" id="lastName" class="form-control" {{on "input" (fn this.updateField "lastName")}} required>
   </div>
 
-  <BsButton @type="primary" {{on "click" (fn this.submitBooking)}} @buttonType="submit">Book</BsButton>
+  <BsButton @type="primary" {{on "click" this.submitBooking}} @buttonType="submit">Book</BsButton>
 </form>

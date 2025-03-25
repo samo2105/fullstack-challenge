@@ -39,6 +39,9 @@ export default class EventCalendarComponent extends Component {
 
   @action
   onEventClick(info) {
-    alert(`Event: ${info.event.title}`);
+    const event_id = info.event.id
+    let modalElement = document.getElementById(`modal-${event_id}`);
+    let modal = new bootstrap.Modal(modalElement);
+    modal.show();
   }
 }
