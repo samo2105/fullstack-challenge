@@ -5,10 +5,14 @@ defmodule Peek.Events.Event do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias Peek.Bookings.Booking
+
   schema "peek_events" do
     field(:duration, :integer)
     field(:start, :naive_datetime)
     field(:title, :string)
+
+    has_many(:bookings, Booking)
 
     timestamps()
   end

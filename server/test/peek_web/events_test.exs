@@ -1,4 +1,4 @@
-defmodule PeekWeb.SchemaTest do
+defmodule PeekWeb.EventsTest do
   use PeekWeb.ConnCase, async: true
 
   alias Peek.Events
@@ -9,13 +9,15 @@ defmodule PeekWeb.SchemaTest do
       title
       start
       duration
+      bookings {
+        id
+      }
     }
   }
   """
 
   setup do
-    event =
-      Events.create_event(%{title: "wine factory", duration: 30, start: ~N[2021-01-01 20:00:00]})
+    event = Events.create_event(%{title: "wine factory", duration: 30, start: ~N[2021-01-01 20:00:00]})
 
     {:ok, event: event}
   end
@@ -30,7 +32,8 @@ defmodule PeekWeb.SchemaTest do
                  %{
                    "duration" => event.duration,
                    "start" => "2021-01-01T20:00:00",
-                   "title" => event.title
+                   "title" => event.title,
+                   "bookings" => [],
                  }
                ]
              }
