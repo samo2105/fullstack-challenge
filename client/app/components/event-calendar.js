@@ -5,6 +5,7 @@ import { tracked } from '@glimmer/tracking';
 import FullCalendar from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
+import timegridPlugin from '@fullcalendar/timegrid'
 
 export default class EventCalendarComponent extends Component {
   @tracked calendar = null;
@@ -22,10 +23,15 @@ export default class EventCalendarComponent extends Component {
 
     // Initialize FullCalendar
     this.calendar = new FullCalendar.Calendar(element, {
-      plugins: [dayGridPlugin, interactionPlugin],
-      initialView: 'dayGrid',
+      plugins: [dayGridPlugin, interactionPlugin, timegridPlugin],
+      initialView: 'timeGrid',
       events: events,
-      eventClick: this.onEventClick
+      eventClick: this.onEventClick,
+      headerToolbar: {
+        left: 'prev,next',
+        center: 'title',
+        right: 'timeGridWeek,timeGridDay' // user can switch between the two
+      },
     });
 
     this.calendar.render();
