@@ -14,14 +14,11 @@
 
     {{!-- Modal --}}
     <div class="modal fade" id="modal-{{event.id}}" tabindex="-1" role="dialog"
-      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      aria-labelledby="exampleModalCenterTitle">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLongTitle">{{event.title}} Bookings</h5>
-            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
           </div>
           <div class="modal-body">
             <table class="table">
@@ -40,10 +37,11 @@
                 {{/each}}
               </tbody>
             </table>
+            <h4>Add a Booking</h4>
+            <BookingForm @eventId={{event.id}} />
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
           </div>
         </div>
       </div>

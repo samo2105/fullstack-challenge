@@ -1,15 +1,19 @@
-import Route from '@ember/routing/route'
-import { inject as service } from '@ember/service'
-import { groupEventsByDay } from '../helpers/eventsHelper'
+import Route from '@ember/routing/route';
+import { inject as service } from '@ember/service';
+import { groupEventsByDay } from '../helpers/eventsHelper';
 
 export default class IndexRoute extends Route {
   @service
-  apolloService
+  apolloService;
 
-  beforeModel () {}
+  beforeModel() {}
 
-  async model (params) {
-    const model = await this.apolloService.fetchAllEvents()
-    return groupEventsByDay(model)
+  async model(params) {
+    const model = await this.apolloService.fetchAllEvents();
+    return groupEventsByDay(model);
+  }
+
+  refreshBookings() {
+    this.refresh();
   }
 }
