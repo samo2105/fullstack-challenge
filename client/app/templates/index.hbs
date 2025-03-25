@@ -1,53 +1,9 @@
 {{page-title "Index"}}
-<div>
-  <h2>
+<div class="container">
+  <h2 class="text-center">
     Welcome to your calendar!
   </h2>
-  {{#each-in @model as |date events|}}
-  <h2>{{date}}</h2>
-  <ul>
-    {{#each events as |event|}}
-    <li>{{event.title}} - {{event.start}}</li>
-    <button type="button" class="btn btn-primary inline" data-bs-toggle="modal" data-bs-target="#modal-{{event.id}}">
-      Bookings
-    </button>
-
-    {{!-- Modal --}}
-    <div class="modal fade" id="modal-{{event.id}}" tabindex="-1" role="dialog"
-      aria-labelledby="exampleModalCenterTitle">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">{{event.title}} Bookings</h5>
-          </div>
-          <div class="modal-body">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">Firstname</th>
-                  <th scope="col">Lastname</th>
-                </tr>
-              </thead>
-              <tbody>
-                {{#each event.bookings as |booking|}}
-                <tr>
-                  <td>{{booking.firstName}}</td>
-                  <td>{{booking.lastName}}</td>
-                </tr>
-                {{/each}}
-              </tbody>
-            </table>
-            <h4>Add a Booking</h4>
-            <BookingForm @eventId={{event.id}} />
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    {{/each}}
-  </ul>
-  {{/each-in}}
+  <h1>Events Calendar</h1>
+  <EventCalendar @events={{this.model}} />
 </div>
 {{outlet}}
