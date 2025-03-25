@@ -4,5 +4,9 @@ query {
     title
     start
     duration
+    bookings {
+      firstName
+      lastName
+    }
   }
 }

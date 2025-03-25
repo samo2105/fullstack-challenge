@@ -1,5 +1,6 @@
 import Route from '@ember/routing/route'
 import { inject as service } from '@ember/service'
+import { groupEventsByDay } from '../helpers/eventsHelper'
 
 export default class IndexRoute extends Route {
   @service
@@ -9,6 +10,6 @@ export default class IndexRoute extends Route {
 
   async model (params) {
     const model = await this.apolloService.fetchAllEvents()
-    return model
+    return groupEventsByDay(model)
   }
 }

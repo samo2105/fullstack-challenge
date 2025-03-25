@@ -1,10 +1,15 @@
 {{page-title "Index"}}
 <div>
   <h2>
-    Welcome!
+    Welcome to your calendar!
   </h2>
-  {{#each @model as |item|}}
-    {{item.id}}-{{item.title}}-{{item.start}}<br />
-  {{/each}}
+  {{#each-in @model as |date events|}}
+    <h2>{{date}}</h2>
+    <ul>
+      {{#each events as |event|}}
+        <li>{{event.title}} - {{event.start}}</li>
+      {{/each}}
+    </ul>
+  {{/each-in}}
 </div>
 {{outlet}}
